@@ -7,6 +7,7 @@ a=soup.prettify()
 #print(a)
 title=soup.title.text
 print(title)
+
 #print(" ")
 A=soup.find('div',class_='info_title')
 print(A.text)
@@ -16,4 +17,7 @@ N=soup.find_all('div',class_='info_label')
 res={N[i].text : DB[i].text for i in range(len(DB))}
 print(res)
 
-
+with open('exdata.txt','w',encoding='utf-8') as l:
+    l.write(title)
+    l.write(A.text)
+    l.write(str(res))
